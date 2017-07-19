@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                mGeneralTextView.setText("now we feel blue");
+                mGeneralTextView.setText(colorClick("blue"));
+                Toast.makeText(MainActivity.this, colorClick("blue"), Toast.LENGTH_SHORT).show();
             }
         });
         mGreenButton = (Button) findViewById(R.id.green_button);
@@ -36,8 +38,15 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                mGeneralTextView.setText("now we feel green");
+                mGeneralTextView.setText(colorClick("green"));
+                Toast.makeText(MainActivity.this, colorClick("green"), Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    private String colorClick(String color){
+        return "now we feel " + color;
+    }
+
+
 }
